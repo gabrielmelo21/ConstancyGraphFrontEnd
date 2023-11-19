@@ -1,0 +1,88 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+
+
+html, body {
+  height: 100%; overflow-x: hidden;
+  background-color: #121212;
+  color: #ffffff;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.bg-black{
+  background: #121212;
+}
+.borderNone{
+  border: none;
+}
+.borderRadius{
+  border-radius: 20px;
+}
+.width100{
+  width: 100%;
+}
+.padding10{
+  padding:10px;
+}
+.margin10{
+  margin:10px;
+}
+.padding20{
+  padding:20px;
+}
+.margin20{
+  margin:20px;
+}
+
+.textCenter{
+  text-align: center;
+}
+.title{
+  font-size: 20pt !important;
+}
+.center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Para centralizar apenas horizontalmente */
+.center-horizontal {
+  display: flex;
+  justify-content: center;
+}
+
+/* Para centralizar apenas verticalmente */
+.center-vertical {
+  display: flex;
+  align-items: center;
+}
+.divider {
+  border-top: 1px solid slategrey;
+  margin: 10px 0; /* Ajuste a margem conforme necessário */
+}
+
+
+/* Estilo da barra de rolagem */
+::-webkit-scrollbar {
+  width: 12px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #333; /* Cor do polegar da barra de rolagem */
+  border-radius: 10px; /* Borda arredondada do polegar da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #444; /* Cor da trilha da barra de rolagem */
+  border-radius: 10px; /* Borda arredondada da trilha da barra de rolagem */
+}
+
+/* Estilo do fundo da página */
+body {
+  background-color: #222; /* Cor de fundo da página em modo noturno */
+  color: #fff; /* Cor do texto em modo noturno */
+}
+
+/* Outros estilos específicos do modo noturno, se necessário */
+
+
+

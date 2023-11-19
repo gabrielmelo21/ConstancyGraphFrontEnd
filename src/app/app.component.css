@@ -1,0 +1,54 @@
+.container{
+  margin-top: 50px;
+}
+
+
+.container-graph {
+  display: grid;
+  grid-template-columns: repeat(28, 0fr); /* Cria 28 colunas com largura igual */
+  gap: 0px; /* Adiciona espaçamento entre as colunas e linhas */
+  margin: 0px;
+  margin-top: -60px !important;
+  margin-bottom: 50px;
+
+
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
+  -webkit-overflow-scrolling: touch; /* Melhora a experiência de rolagem em dispositivos iOS */
+
+
+}
+
+.day-square {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 47px;
+  border:none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 3px;
+}
+
+.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.inactive {
+  background-color: #ff3d00; /* Vermelho para status false */
+  color: white;
+}
+
+.day-number {
+  margin-top: 5px;
+}
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}

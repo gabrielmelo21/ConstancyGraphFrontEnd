@@ -1,0 +1,106 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Painel (30%) -->
+    <div class="col-lg-3 thumbnail  bg-black padding10 ">
+
+
+      <h4 class="padding10 margin10 textCenter" style="color: #CCC">Todos Objetivos</h4>
+
+  <hr>
+
+ <ul class="list-group">
+
+   <ng-container *ngIf="listAllUnique$ | async as listAll">
+     <div   *ngFor="let item of listAll">
+
+       <li class="list-group-item bg-black width100 borderNone center-horizontal " >
+         <button (click)="changeGraph(item)" mat-button color="accent">{{ item }}</button>
+       </li>
+
+     </div>
+   </ng-container>
+
+
+
+
+
+
+
+
+
+
+ </ul>
+
+
+
+
+
+    </div>
+
+    <!-- Conteúdo Principal (70%) -->
+    <div class="col-lg-9 thumbnail  bg-black ">
+      <h1 class="title padding20 margin20">ConstancyGraph    <button mat-icon-button  (click)="isFormOpen?closeForm():openForm()">
+        <mat-icon>add</mat-icon>
+      </button></h1>
+
+
+
+
+      <div *ngIf="isFormOpen" class="container">
+        <hr>
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+              <mat-form-field class="width100">
+                <mat-label>Nome do Objetivo do seu Graph</mat-label>
+                <input matInput formControlName="newObjetivo" class="width100" placeholder="Estudar algo, exercicios, alimentação...">
+              </mat-form-field>
+              <button mat-raised-button type="submit" color="accent" class="margin10 center-horizontal">Criar Graph</button>
+            </form>
+
+        <hr>
+     </div>
+
+
+      <p>Aqui vamos ver o progresso e constancy nos
+        nosso objetivos apartir de um gráfico de atividade diaria, cada pequeno
+        bloco representa um dia do ano, irá marcar verde para quando realizamos
+        uma atividade de um determinado objetivo, e vermelho para não realizado. <br>
+        Com isso conseguimos ver o progresso geral de nossos objetivos</p>
+      <hr>
+
+<div style="display: inline-block" *ngIf="objetivoSelected!==''">
+  <h2 color="accent">{{objetivoSelected}}</h2>
+  <button  (click)="updateData(objetivoSelected)" mat-raised-button color="accent" class="margin10 borderRadius">Marcar atividade Concluída</button>
+</div>
+
+
+
+      <div class="center-horizontal" *ngIf="waitingHomeImg">
+          <img src="../assets/goal.png" width="30%" height="30%">
+      </div>
+
+
+      <div class="center-container margin20">
+        <mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>
+        <br>
+        <br>
+        <h3 *ngIf="gerandoGraphMSG">Aguarde estamos criando seu novo Graph...</h3>
+      </div>
+
+
+
+      <div class="container-graph" *ngIf="objetivoSelected!==''">
+        <ng-container *ngIf="listByObjetivo$ | async as frequencyData">
+          <div class="day-square" *ngFor="let day of frequencyData" [ngClass]="{'active': day.status, 'inactive': !day.status}">
+            <mat-icon *ngIf="day.status">check_circle</mat-icon>
+            <mat-icon *ngIf="!day.status">cancel</mat-icon>
+            <span class="day-number">{{ day.numeroDoDia }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>
